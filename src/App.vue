@@ -3,7 +3,10 @@
     <!-- 头部 -->
     <mt-header fixed title="Vue项目"></mt-header>
     <!-- 内容 -->
-    <router-view></router-view>
+		<transition>
+			<router-view></router-view>
+		</transition>
+    
     <!-- 底部 -->
     <nav class="mui-bar mui-bar-tab">
 			<router-link class="mui-tab-item" to="/home">
@@ -32,6 +35,20 @@
 
 <style lang="scss" scoped>
   .app-container {
-    padding: 40px 0 ;
+    padding: 40px 0 50px 0;
+		overflow-x: hidden;
   }
+	.v-enter{
+		opacity: 0;
+		transform: translateX(100%)
+	}
+	.v-leave-to{
+		opacity: 0;
+		transform: translateX(-100%);
+		position: absolute;
+	}
+	.v-enter-active,
+	.v-leave-active {
+		transition: all .5s ease;
+	}
 </style>
